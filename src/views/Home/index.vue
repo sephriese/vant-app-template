@@ -29,23 +29,12 @@ export default {
       // const aa = new Modal('aa')
       // const bb = new Modal('bb')
       // console.log(aa === bb)
-      let form = {
-        name: '1111',
-        age: '22',
-        job: 'cooker',
-        form: {
-          father: '22',
-          mather: '33',
-          grandfa: '44',
-          grandma: '55'
-        }
-      }
 
-      let bb = JSON.parse(JSON.stringify(form))
-      let aa = deepCopy(form)
+      let aa = deepCopy(this.form)
+      let bb = JSON.parse(JSON.stringify(this.form))
       aa.pets = 'dog'
       bb.pets = 'cat'
-      console.log(aa, bb, form)
+      console.log(aa, bb, this.form)
     }
   }
 }
