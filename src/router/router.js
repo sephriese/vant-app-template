@@ -22,7 +22,7 @@ export default [
       {
         path: '/home',
         name: 'Home',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/home/index'),
+        component: () => import(/* webpackChunkName: "home" */ '@/views/Home/index'),
         meta: { title: '首页', permission: false }
       }
     ]
@@ -36,7 +36,7 @@ export default [
       {
         path: '/user',
         name: 'User',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/user/index'),
+        component: () => import(/* webpackChunkName: "user" */ '@/views/User/index'),
         meta: { title: '我的', permission: true, keepAlive: true }
       }
     ]

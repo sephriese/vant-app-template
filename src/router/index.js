@@ -15,7 +15,7 @@ let routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '@/views/login'),
+    component: () => import(/* webpackChunkName: "login" */ '@/views/Login'),
     meta: { title: '登录', permission: false }
   }
 ]
@@ -68,7 +68,7 @@ myRouter.beforeEach((to, from, next) => {
 
   // 处理页面切换方式
   if (to.params.direction) {
-    store.dispatch('updateDirection', to.params.direction)
+    store.dispatch('user/updateDirection', to.params.direction)
   } else {
     const pathIndex = getSStorage('pathIndex')
     const toPath = pathIndex.filter(item => item.path === to.path)
@@ -78,9 +78,9 @@ myRouter.beforeEach((to, from, next) => {
     // 判断并记录跳转页面是否访问过，以此判断跳转过渡方式
     if (toIndex > 0) {
       if (!fromIndex || Number(toIndex) > Number(fromIndex) || (toIndex === 0 && fromIndex === 0)) {
-        store.dispatch('updateDirection', 'forward')
+        store.dispatch('user/updateDirection', 'forward')
       } else {
-        store.dispatch('updateDirection', 'back')
+        store.dispatch('user/updateDirection', 'back')
       }
     } else {
       ++historyCount
@@ -92,7 +92,7 @@ myRouter.beforeEach((to, from, next) => {
         })
         setSStorage('pathIndex', arr)
       }
-      store.dispatch('updateDirection', 'forward')
+      store.dispatch('user/updateDirection', 'forward')
     }
   }
   next()

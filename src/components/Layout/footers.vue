@@ -62,7 +62,7 @@ a {
   z-index: 10;
 }
 .code {
-  .round(@lang:70px; @size: 40px; @color: @title3; @bg: #fff);
+  // .round(@lang:70px; @size: 40px; @color: @title3; @bg: #fff);
   border: 1px solid @title3;
   transition: 0.5s;
   display: block;

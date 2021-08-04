@@ -16,7 +16,7 @@ module.exports = {
     open: true,
     disableHostCheck: true
   },
-  parallel: require('os').cpus().length > 1,
+  // parallel: require('os').cpus().length > 1,
   // configureWebpack: {
   //webpack的相关配置在这里
   // plugins: plugins,
@@ -59,10 +59,12 @@ module.exports = {
     // if (process.env.NODE_ENV === 'production') {
     //   config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
     // }
+
     config.optimization.minimizer('terser').tap(args => {
       args[0].terserOptions.compress.drop_console = true
       return args
     })
+
     // 代码分析
     if (process.env.NODE_ENV === 'production') {
       config.plugins.push(new BundleAnalyzerPlugin())

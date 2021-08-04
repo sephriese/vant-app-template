@@ -1,5 +1,5 @@
 import { getToken, setToken, getLStorage, getSStorage, setSStorage, removeToken, setLStorage, removeLStorage, getBrowserVersions } from '@/utils/auth'
-import home from '@/apis/home'
+import users from '@/apis/user'
 
 const user = {
   namespaced: true,
@@ -44,7 +44,7 @@ const user = {
     Login({ commit, dispatch }, userInfo) {
       return new Promise((resolve, reject) => {
         try {
-          home.login(userInfo).then(res => {
+          users.login(userInfo).then(res => {
             dispatch('setChannel').then(() => {
               commit('SET_TOKEN', res)
               resolve()
@@ -58,7 +58,7 @@ const user = {
     // 获取用户信息
     GetUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
-        home.getUserInfo().then(
+        users.getUserInfo().then(
           res => {
             if (Object.keys(res).length > 0) {
               commit('SET_USERINFO', res)
