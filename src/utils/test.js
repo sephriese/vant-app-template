@@ -23,7 +23,6 @@ export class Modal {
 }
 
 export function deepCopy(val) {
-  console.log(typeof val !== 'object')
   if (typeof val !== 'object' || val === null) {
     return val
   }
@@ -31,9 +30,7 @@ export function deepCopy(val) {
   if (val.constructor === Array) {
     obj = []
   }
-  console.log(2)
   for (let i in val) {
-    console.log(i)
     if (Object.prototype.hasOwnProperty.call(val, i)) {
       obj[i] = deepCopy(val[i])
     }
